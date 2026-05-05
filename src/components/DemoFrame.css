@@ -1,0 +1,88 @@
+.demo-frame {
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  padding: 16px;
+}
+
+.demo-controls {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.demo-controls button {
+  padding: 8px 14px;
+  background: #1f2328;
+  color: #ffffff;
+  border: 1px solid #1f2328;
+  border-radius: 6px;
+}
+
+.demo-controls button:hover {
+  background: #30363d;
+}
+
+.demo-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+@media (max-width: 720px) {
+  .demo-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.demo-pane {
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  padding: 32px 16px 16px;
+  position: relative;
+  background: #fafbfc;
+  min-height: 160px;
+}
+
+.demo-pane.bad {
+  border-color: #f5c2c0;
+  background: #fff5f5;
+}
+
+.demo-pane.good {
+  border-color: #b7e1c2;
+  background: #f4faf6;
+}
+
+.pane-label {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  padding: 2px 8px;
+  border-radius: 999px;
+}
+
+.bad .pane-label {
+  background: #ffe1e1;
+  color: #a40e26;
+}
+
+.good .pane-label {
+  background: #d4f1dd;
+  color: #1a7f37;
+}
+
+.demo-notes {
+  margin: 16px 0 0;
+  padding: 12px 14px;
+  background: #f6f8fa;
+  border-left: 3px solid #1f2328;
+  color: #57606a;
+  font-size: 14px;
+  border-radius: 4px;
+}
