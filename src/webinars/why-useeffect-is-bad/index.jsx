@@ -1,4 +1,5 @@
 import EmptyStateFlashDemo from './EmptyStateFlashDemo.jsx'
+import DelayedSubscriptionDemo from './DelayedSubscriptionDemo.jsx'
 
 export default {
   slug: 'why-useeffect-is-bad',
@@ -11,6 +12,11 @@ export default {
       id: 'empty-state-flash',
       title: 'Empty-state flash on first render',
       Component: EmptyStateFlashDemo,
+    },
+    {
+      id: 'delayed-subscription',
+      title: 'Delayed subscription (effect runs after paint)',
+      Component: DelayedSubscriptionDemo,
     },
   ],
 }
