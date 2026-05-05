@@ -16,11 +16,14 @@ No test runner is configured.
 
 ## Architecture
 
-Minimal Vite + React 19 starter (JavaScript/JSX, not TypeScript).
+React Class Playground — a personal learning project that mirrors the user's React class. Each "webinar" is a topic with a set of small Bad/Good demo components.
 
-- Entry point: `index.html` → `src/main.jsx` → mounts `<App />` inside `<StrictMode>` on `#root` via `createRoot`.
-- `src/App.jsx` is the only component; styles live in sibling `App.css` and global `index.css`.
-- Static SVG sprite at `public/icons.svg` is referenced via `<use href="/icons.svg#..." />` (served from root, not imported).
-- Image assets imported from `src/assets/` are bundled by Vite; assets in `public/` are served as-is at the URL root.
-- ESLint uses flat config (`eslint.config.js`) with `@eslint/js` recommended, `eslint-plugin-react-hooks`, and `eslint-plugin-react-refresh` (Vite preset). `dist` is globally ignored.
-- Vite config (`vite.config.js`) only registers `@vitejs/plugin-react`. React Compiler is intentionally not enabled (see `README.md`).
+- Routing: `react-router-dom@^7` via `createBrowserRouter` in `src/main.jsx`. Routes: `/` (home), `/webinars/:slug` (detail), `*` (NotFound).
+- Layout: `src/app/Layout.jsx` renders the header and `<Outlet />`.
+- Webinar registry: `src/webinars/index.js` exports a hardcoded `webinars` array and `getWebinar(slug)`. Each webinar is a folder under `src/webinars/<slug>/` exporting `{ slug, title, summary, intro, demos: [{ id, title, Component }] }` from its `index.jsx`. Add a webinar = create a folder, export the shape, append to the array.
+- Detail page: `src/pages/WebinarPage.jsx` looks up the webinar by `:slug` and renders each demo in its own `<section id={demo.id}>` so deep-links via `#demo-id` work.
+- DemoFrame: `src/components/DemoFrame.jsx` is the shared Bad/Good wrapper used by every demo — slots for `controls` (above, shared trigger), `bad`, `good`, and `notes` (takeaway under the grid).
+- Styling: plain CSS files per component. Each `Foo.jsx` imports its sibling `Foo.css`. `src/index.css` has the global resets and `.container`. No Tailwind, no CSS modules, no preprocessor.
+- Helpers: `src/lib/fakeApi.js` exposes `fetchItems()` with a 600ms delay for demos.
+- StrictMode is intentionally retained — surfaces effect bugs in demos, which is on-purpose for this playground.
+- No test runner. Verification is manual through `pnpm dev`, plus `pnpm lint` and `pnpm build`.
