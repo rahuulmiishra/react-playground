@@ -1,28 +1,16 @@
-import EmptyStateFlashDemo from './EmptyStateFlashDemo.jsx'
-import DelayedSubscriptionDemo from './DelayedSubscriptionDemo.jsx'
-import StaleValueFlashDemo from './StaleValueFlashDemo.jsx'
+import ProductsListDemo from './ProductsListDemo.jsx'
 
 export default {
   slug: 'why-useeffect-is-bad',
   title: 'Why useEffect is bad',
-  summary: 'Three real-world useEffect anti-patterns and their fixes.',
+  summary: 'Fetch a products list with useEffect — loading, data, and error states.',
   intro:
-    'Each demo runs Bad and Good side-by-side. Use the trigger button and watch for the bug.',
+    'Single component fetching from dummyjson.com inside useEffect. Renders loading, then either the products grid or an error message.',
   demos: [
     {
-      id: 'empty-state-flash',
-      title: 'Empty-state flash on first render',
-      Component: EmptyStateFlashDemo,
-    },
-    {
-      id: 'delayed-subscription',
-      title: 'Delayed subscription (effect runs after paint)',
-      Component: DelayedSubscriptionDemo,
-    },
-    {
-      id: 'stale-value-flash',
-      title: 'Cascading effect causes stale-value flash',
-      Component: StaleValueFlashDemo,
+      id: 'products-list',
+      title: 'Fetch products list with useEffect',
+      Component: ProductsListDemo,
     },
   ],
 }
