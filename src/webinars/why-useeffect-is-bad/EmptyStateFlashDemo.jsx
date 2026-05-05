@@ -8,12 +8,13 @@ function BadList({ nonce }) {
 
   useEffect(() => {
     let cancelled = false
+    // eslint-disable-next-line react-hooks/set-state-in-effect -- intentional anti-pattern (the flash this demo shows)
+    setItems([])
     fetchItems().then((data) => {
       if (!cancelled) setItems(data)
     })
     return () => {
       cancelled = true
-      setItems([])
     }
   }, [nonce])
 
@@ -34,12 +35,13 @@ function GoodList({ nonce }) {
 
   useEffect(() => {
     let cancelled = false
+    // eslint-disable-next-line react-hooks/set-state-in-effect -- explicit loading reset is the fix this demo shows
+    setState({ status: 'loading', items: [] })
     fetchItems().then((data) => {
       if (!cancelled) setState({ status: 'success', items: data })
     })
     return () => {
       cancelled = true
-      setState({ status: 'loading', items: [] })
     }
   }, [nonce])
 
