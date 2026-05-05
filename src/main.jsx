@@ -4,11 +4,8 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import Layout from './app/Layout.jsx'
 import NotFound from './app/NotFound.jsx'
 import HomePage from './pages/HomePage.jsx'
+import WebinarPage from './pages/WebinarPage.jsx'
 import './index.css'
-
-function WebinarPagePlaceholder() {
-  return <p>Webinar page (placeholder).</p>
-}
 
 const router = createBrowserRouter([
   {
@@ -16,7 +13,7 @@ const router = createBrowserRouter([
     element: <Layout />,
     children: [
       { index: true, element: <HomePage /> },
-      { path: 'webinars/:slug', element: <WebinarPagePlaceholder /> },
+      { path: 'webinars/:slug', element: <WebinarPage /> },
       { path: '*', element: <NotFound /> },
     ],
   },

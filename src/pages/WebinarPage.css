@@ -1,0 +1,35 @@
+.webinar-header {
+  margin-bottom: 32px;
+}
+
+.webinar-header h1 {
+  margin: 0 0 8px;
+  font-size: 28px;
+}
+
+.webinar-header .intro {
+  margin: 0;
+  color: #57606a;
+}
+
+.demo-section {
+  margin: 40px 0;
+  padding-top: 24px;
+  border-top: 1px solid #e5e7eb;
+}
+
+.demo-section h2 {
+  font-size: 18px;
+  margin: 0 0 16px;
+  display: flex;
+  gap: 12px;
+  align-items: baseline;
+}
+
+.demo-num {
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #57606a;
+  font-weight: 600;
+}
