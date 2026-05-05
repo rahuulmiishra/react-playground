@@ -1,5 +1,6 @@
 import EmptyStateFlashDemo from './EmptyStateFlashDemo.jsx'
 import DelayedSubscriptionDemo from './DelayedSubscriptionDemo.jsx'
+import StaleValueFlashDemo from './StaleValueFlashDemo.jsx'
 
 export default {
   slug: 'why-useeffect-is-bad',
@@ -17,6 +18,11 @@ export default {
       id: 'delayed-subscription',
       title: 'Delayed subscription (effect runs after paint)',
       Component: DelayedSubscriptionDemo,
+    },
+    {
+      id: 'stale-value-flash',
+      title: 'Cascading effect causes stale-value flash',
+      Component: StaleValueFlashDemo,
     },
   ],
 }
