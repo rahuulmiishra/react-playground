@@ -27,7 +27,7 @@ function BadCounter() {
     const t = setTimeout(() => {
       setValue(getSnapshot())
       unsub = subscribe(() => setValue(getSnapshot()))
-    }, 500)
+    }, 2000)
     return () => {
       clearTimeout(t)
       if (unsub) unsub()
