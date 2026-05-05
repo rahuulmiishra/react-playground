@@ -1,0 +1,69 @@
+.delayed-stage {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.delayed-stage .hint {
+  margin: 0;
+  color: #57606a;
+  font-size: 14px;
+}
+
+.delayed-stage .remount-btn {
+  align-self: flex-start;
+  padding: 8px 14px;
+  background: #1f2328;
+  color: #ffffff;
+  border: 1px solid #1f2328;
+  border-radius: 6px;
+}
+
+.delayed-stage .remount-btn:hover {
+  background: #30363d;
+}
+
+.delayed-stage .ticker-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+@media (max-width: 720px) {
+  .delayed-stage .ticker-row {
+    grid-template-columns: 1fr;
+  }
+}
+
+.delayed-stage .ticker {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 16px;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  background: #fafbfc;
+}
+
+.delayed-stage .ticker-bad {
+  border-color: #f5c2c0;
+  background: #fff5f5;
+}
+
+.delayed-stage .ticker-good {
+  border-color: #b7e1c2;
+  background: #f4faf6;
+}
+
+.delayed-stage .ticker .label {
+  font-size: 12px;
+  color: #57606a;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.delayed-stage .ticker .value {
+  font-size: 32px;
+  font-variant-numeric: tabular-nums;
+}

@@ -1,12 +1,14 @@
 import ProductsListDemo from './ProductsListDemo.jsx'
 import ProductsListUseDemo from './ProductsListUseDemo.jsx'
+import DelayedSubscriptionDemo from './DelayedSubscriptionDemo.jsx'
 
 export default {
   slug: 'why-useeffect-is-bad',
   title: 'Why useEffect is bad',
-  summary: 'Fetch a products list — once with useEffect, once with React 19 use().',
+  summary:
+    'Fetching with useEffect vs use(), and the cost of subscribing in useEffect.',
   intro:
-    'Two components fetching the same dummyjson.com endpoint, each with a different approach to async state.',
+    'Three demos comparing useEffect-based patterns with their modern React replacements.',
   demos: [
     {
       id: 'products-list',
@@ -17,6 +19,11 @@ export default {
       id: 'products-list-use',
       title: 'Fetch products list with use() + Suspense (React 19)',
       Component: ProductsListUseDemo,
+    },
+    {
+      id: 'delayed-subscription',
+      title: 'Subscribe in useEffect vs useSyncExternalStore',
+      Component: DelayedSubscriptionDemo,
     },
   ],
 }
