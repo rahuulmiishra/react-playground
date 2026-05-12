@@ -5,6 +5,7 @@ import Layout from './app/Layout.jsx'
 import NotFound from './app/NotFound.jsx'
 import HomePage from './pages/HomePage.jsx'
 import WebinarPage from './pages/WebinarPage.jsx'
+import SearchScratchPage from './pages/SearchScratchPage.jsx'
 import './index.css'
 
 const router = createBrowserRouter([
@@ -14,13 +15,20 @@ const router = createBrowserRouter([
     children: [
       { index: true, element: <HomePage /> },
       { path: 'webinars/:slug', element: <WebinarPage /> },
+      { path: 'search-scratch', element: <SearchScratchPage /> },
       { path: '*', element: <NotFound /> },
     ],
   },
 ])
 
-createRoot(document.getElementById('root')).render(
-  <StrictMode>
+createRoot(document.getElementById("root")).render(
+
     <RouterProvider router={router} />
-  </StrictMode>,
-)
+,
+);
+
+// createRoot(document.getElementById('root')).render(
+//   <StrictMode>
+//     <RouterProvider router={router} />
+//   </StrictMode>,
+// )

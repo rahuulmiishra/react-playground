@@ -7,6 +7,11 @@ export default function HomePage() {
     <div className="home">
       <h1>React Class Playground</h1>
       <p className="lede">Notes and live demos from my React classes.</p>
+      <div className="home-actions">
+        <Link to="/search-scratch" className="cta">
+          Build search from scratch →
+        </Link>
+      </div>
       {webinars.length === 0 ? (
         <p className="empty">No webinars yet.</p>
       ) : (

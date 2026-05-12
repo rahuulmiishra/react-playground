@@ -58,6 +58,7 @@ function BadFilter() {
 
   useEffect(() => {
     // eslint-disable-next-line react-hooks/set-state-in-effect -- intentional anti-pattern: syncing derived state from another state
+
     setItems(applyFilter(ITEMS, filter))
   }, [filter])
 

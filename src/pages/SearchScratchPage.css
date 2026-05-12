@@ -1,0 +1,130 @@
+.scratch-page {
+  min-height: calc(100vh - 120px);
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 64px 20px;
+  background:
+    radial-gradient(ellipse at top, rgba(99, 102, 241, 0.08), transparent 60%),
+    #f8fafc;
+}
+
+.scratch-card {
+  width: 100%;
+  max-width: 640px;
+}
+
+.scratch-title {
+  margin: 0 0 8px;
+  font-size: 28px;
+  font-weight: 700;
+  color: #0f172a;
+  letter-spacing: -0.01em;
+}
+
+.scratch-sub {
+  margin: 0 0 32px;
+  color: #64748b;
+  font-size: 15px;
+  line-height: 1.55;
+}
+
+.scratch-search {
+  position: relative;
+}
+
+.scratch-input {
+  width: 100%;
+  height: 48px;
+  font-size: 18px;
+  padding: 0 18px;
+  background: #ffffff;
+  color: #0f172a;
+  border: 1.5px solid #e2e8f0;
+  border-radius: 12px;
+  outline: none;
+  box-shadow:
+    0 1px 2px rgba(15, 23, 42, 0.04),
+    0 4px 12px rgba(15, 23, 42, 0.04);
+  transition:
+    border-color 200ms ease,
+    box-shadow 200ms ease,
+    transform 200ms ease;
+  box-sizing: border-box;
+}
+
+.scratch-input::placeholder {
+  color: #94a3b8;
+}
+
+.scratch-input:hover {
+  border-color: #cbd5e1;
+  box-shadow:
+    0 1px 2px rgba(15, 23, 42, 0.05),
+    0 6px 16px rgba(15, 23, 42, 0.06);
+}
+
+.scratch-input:focus {
+  border-color: #6366f1;
+  box-shadow:
+    0 0 0 4px rgba(99, 102, 241, 0.15),
+    0 4px 16px rgba(99, 102, 241, 0.12);
+  transform: translateY(-1px);
+}
+
+.scratch-dropdown {
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 0;
+  right: 0;
+  list-style: none;
+  margin: 0;
+  padding: 6px;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  box-shadow:
+    0 4px 12px rgba(15, 23, 42, 0.06),
+    0 12px 32px rgba(15, 23, 42, 0.10);
+  max-height: 320px;
+  overflow-y: auto;
+  z-index: 10;
+  animation: drop-in 180ms cubic-bezier(0.2, 0.8, 0.2, 1) both;
+}
+
+@keyframes drop-in {
+  from {
+    opacity: 0;
+    transform: translateY(-4px) scale(0.99);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.scratch-option {
+  padding: 10px 12px;
+  font-size: 15px;
+  color: #1e293b;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 120ms ease, color 120ms ease, transform 120ms ease;
+  animation: option-in 200ms ease both;
+  animation-delay: calc(var(--i) * 18ms);
+}
+
+@keyframes option-in {
+  from { opacity: 0; transform: translateX(-4px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+.scratch-option:hover {
+  background: #f1f5f9;
+  color: #0f172a;
+}
+
+.scratch-option:active {
+  background: #e2e8f0;
+  transform: scale(0.99);
+}

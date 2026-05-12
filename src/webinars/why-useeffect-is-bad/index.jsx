@@ -1,5 +1,5 @@
-// import ProductsListDemo from './ProductsListDemo.jsx'
-// import ProductsListUseDemo from './ProductsListUseDemo.jsx'
+import ProductsListDemo from './ProductsListDemo.jsx'
+import ProductsListUseDemo from './ProductsListUseDemo.jsx'
 import DelayedSubscriptionDemo from './DelayedSubscriptionDemo.jsx'
 import FilterCascadeDemo from './FilterCascadeDemo.jsx'
 
@@ -26,10 +26,10 @@ export default {
       title: 'Subscribe in useEffect vs useSyncExternalStore',
       Component: DelayedSubscriptionDemo,
     },
-    {
-      id: 'filter-cascade',
-      title: 'Sync derived state via useEffect vs derive during render',
-      Component: FilterCascadeDemo,
-    },
+    // {
+    //   id: 'filter-cascade',
+    //   title: 'Sync derived state via useEffect vs derive during render',
+    //   Component: FilterCascadeDemo,
+    // },
   ],
 }
