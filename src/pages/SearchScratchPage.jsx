@@ -23,39 +23,39 @@ const ITEMS = [
 ]
 
 function debounce(fn, delay) {
-   let id = '';
-  return function(...args){
+  let timeoutId = "";
+
+  return function (...args) {
     let self = this;
-      clearTimeout(id);
-      id = setTimeout(()=> {
-        console.log('dsd');
-        fn.call(self, ...args);
-      },delay);
-  }
+    clearTimeout(timeoutId);
+    timeoutId = setTimeout(() => {
+      fn.call(self, ...args);
+    }, delay);
+  };
 }
 
-function throttle(fn, delay) { 
+function throttle(fn,delay) {
+   let waiting = false;
 
-  let waiting = false;
    return function(...args) {
-
-      if(waiting) return;
-
-       waiting = true;
-       fn.call(this, ...args)
-       setTimeout(()=> {waiting = false}, delay);
-
+      
+    if (waiting)  {
+      return;
+    }
+      fn.call(this, ...args);
+      waiting = true;
+      setTimeout(() => {
+        waiting = false;
+      }, delay);
    }
-
 }
+
+
 
 export default function SearchScratchPage() {
   const [query, setQuery] = useState('')
 
-
   const { data, isLoading, getFilteredProducts, abort } = useNetwork();
-  console.log(data);
-
 
   const debouncedQuery = useCallback(throttle(getFilteredProducts, 1000), []);
 
@@ -63,7 +63,7 @@ export default function SearchScratchPage() {
     setQuery(e.target.value);
     // abort();
     getFilteredProducts(e.target.value);
-    //debouncedQuery(e.target.value);
+
   };
 
 
@@ -73,7 +73,7 @@ export default function SearchScratchPage() {
         <h1 className="scratch-title">Search (from scratch)</h1>
         <p className="scratch-sub">
           Starter shell — input + hardcoded dropdown. We'll evolve this into the
-          debounced and immediate versions step by step.
+          debounced and immediate versions step by step. Working?
         </p>
 
         <div className="scratch-search">
@@ -81,16 +81,14 @@ export default function SearchScratchPage() {
             type="text"
             value={query}
             onChange={handleChange}
-            onBlur={() => setTimeout(() => setOpen(false), 120)}
-            placeholder="Search products…"
+            //onBlur={() => setTimeout(() => setOpen(false), 120)}
+            placeholder="Search products….."
             className="scratch-input"
             autoComplete="off"
             spellCheck="false"
           />
 
-          <Suspense fallback="loading list">
-            <DropDown query={query} data={data} />
-          </Suspense>
+          <DropDown query={query} data={data} />
         </div>
       </div>
     </div>
@@ -100,8 +98,6 @@ export default function SearchScratchPage() {
 
 
 function DropDown({  query, data }) {
-
-   
 
     const showDropdown = query && data?.length > 0;
 
